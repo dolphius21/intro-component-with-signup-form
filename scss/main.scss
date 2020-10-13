@@ -1,0 +1,130 @@
+$primary-red: hsl(0, 100%, 74%);
+$primary-green: hsl(154, 59%, 51%);
+$accent-color: hsl(248, 32%, 49%);
+$dark-neutral: hsl(249, 10%, 26%);
+$light-neutral: hsl(246, 25%, 77%);
+$shadow: rgba(62, 60, 73, 0.3);
+
+@mixin media-lg {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: $primary-red url(../images/bg-intro.png) repeat top center;
+  color: white;
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.main {
+  padding: 4rem 2rem;
+
+  .intro {
+    text-align: center;
+    max-width: 600px;
+
+    .heading {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .right {
+    .trial-callout {
+      text-align: center;
+      padding: 1.5rem;
+      background: $accent-color;
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 0 0 $shadow;
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      font-weight: 700;
+    }
+
+    .form {
+      max-width: 600px;
+      text-align: center;
+      padding: 3rem;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 0 0 $shadow;
+      margin-bottom: 2rem;
+
+      input {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        outline: none;
+        border: 1px solid $light-neutral;
+        margin-bottom: 1rem;
+        border-radius: 0.25rem;
+      }
+
+      input::placeholder {
+        font-weight: 600;
+      }
+
+      input:active {
+        border: 1px solid $dark-neutral;
+      }
+
+      .btn {
+        display: block;
+        padding: 1.5rem;
+        background: $primary-green;
+        width: 100%;
+        outline: none;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 600;
+        border: none;
+        border-radius: 0.25rem;
+        box-shadow: inset 0 -5px 0 0 $shadow;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: $light-neutral;
+        font-size: 0.8rem;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: $primary-red;
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}

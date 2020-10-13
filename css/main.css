@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #ff7a7a url(../images/bg-intro.png) repeat top center;
+  color: white;
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main {
+  padding: 4rem 2rem;
+}
+
+.main .intro {
+  text-align: center;
+  max-width: 600px;
+}
+
+.main .intro .heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.main .intro p {
+  margin-bottom: 2rem;
+}
+
+.main .right .trial-callout {
+  text-align: center;
+  padding: 1.5rem;
+  background: #6055a5;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0 6px 0 0 rgba(62, 60, 73, 0.3);
+          box-shadow: 0 6px 0 0 rgba(62, 60, 73, 0.3);
+  margin-bottom: 2rem;
+}
+
+.main .right .highlight {
+  font-weight: 700;
+}
+
+.main .right .form {
+  max-width: 600px;
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0 6px 0 0 rgba(62, 60, 73, 0.3);
+          box-shadow: 0 6px 0 0 rgba(62, 60, 73, 0.3);
+  margin-bottom: 2rem;
+}
+
+.main .right .form input {
+  display: block;
+  padding: 1rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid #b9b6d3;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.main .right .form input::-webkit-input-placeholder {
+  font-weight: 600;
+}
+
+.main .right .form input:-ms-input-placeholder {
+  font-weight: 600;
+}
+
+.main .right .form input::-ms-input-placeholder {
+  font-weight: 600;
+}
+
+.main .right .form input::placeholder {
+  font-weight: 600;
+}
+
+.main .right .form input:active {
+  border: 1px solid #3e3c49;
+}
+
+.main .right .form .btn {
+  display: block;
+  padding: 1.5rem;
+  background: #38cc8c;
+  width: 100%;
+  outline: none;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: inset 0 -5px 0 0 rgba(62, 60, 73, 0.3);
+          box-shadow: inset 0 -5px 0 0 rgba(62, 60, 73, 0.3);
+  margin-bottom: 1rem;
+}
+
+.main .right .form p {
+  color: #b9b6d3;
+  font-size: 0.8rem;
+}
+
+.main .right .form a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ff7a7a;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+/*# sourceMappingURL=main.css.map */
