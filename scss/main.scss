@@ -5,8 +5,14 @@ $dark-neutral: hsl(249, 10%, 26%);
 $light-neutral: hsl(246, 25%, 77%);
 $shadow: rgba(62, 60, 73, 0.3);
 
+@mixin media-xl {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
 @mixin media-lg {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 992px) {
     @content;
   }
 }
@@ -27,50 +33,82 @@ body {
 .container {
   max-width: 1440px;
   margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
 .main {
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .intro {
-    text-align: center;
-    max-width: 600px;
+  @include media-lg {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 90vh;
+  }
+}
 
-    .heading {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
+.intro {
+  text-align: center;
+  max-width: 600px;
+  animation: down 1s ease-out;
 
-    p {
-      margin-bottom: 2rem;
+  @include media-lg {
+    text-align: left;
+    animation: right 1s ease-out;
+  }
+
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+
+    @include media-lg {
+      font-size: 3.25rem;
+      line-height: 1.2;
     }
   }
 
-  .right {
-    .trial-callout {
-      text-align: center;
-      padding: 1.5rem;
-      background: $accent-color;
-      border-radius: 0.5rem;
-      box-shadow: 0 6px 0 0 $shadow;
-      margin-bottom: 2rem;
-    }
+  p {
+    margin-bottom: 2rem;
+  }
+}
 
-    .highlight {
-      font-weight: 700;
-    }
+.right {
+  max-width: 600px;
+  animation: down 1s ease-out;
 
-    .form {
-      max-width: 600px;
-      text-align: center;
-      padding: 3rem;
-      background: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 6px 0 0 $shadow;
-      margin-bottom: 2rem;
+  @include media-lg {
+    width: 95%;
+    justify-self: right;
+    animation: left 1s ease-out;
+  }
+
+  .trial-callout {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+    background: $accent-color;
+    border-radius: 0.5rem;
+    box-shadow: 0 6px 0 0 $shadow;
+    margin-bottom: 2rem;
+  }
+
+  .highlight {
+    font-weight: 700;
+  }
+
+  .form {
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 6px 0 0 $shadow;
+    margin-bottom: 2rem;
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
 
       input {
         display: block;
@@ -78,7 +116,6 @@ body {
         width: 100%;
         outline: none;
         border: 1px solid $light-neutral;
-        margin-bottom: 1rem;
         border-radius: 0.25rem;
       }
 
@@ -86,45 +123,111 @@ body {
         font-weight: 600;
       }
 
-      input:active {
-        border: 1px solid $dark-neutral;
-      }
-
-      .btn {
-        display: block;
-        padding: 1.5rem;
-        background: $primary-green;
-        width: 100%;
-        outline: none;
-        text-transform: uppercase;
-        color: white;
-        font-weight: 600;
-        border: none;
-        border-radius: 0.25rem;
-        box-shadow: inset 0 -5px 0 0 $shadow;
-        margin-bottom: 1rem;
-      }
-
-      p {
-        color: $light-neutral;
-        font-size: 0.8rem;
-      }
-
-      a {
-        text-decoration: none;
-        font-size: 0.8rem;
-        font-weight: 600;
+      .error-message {
+        display: none;
+        text-align: right;
+        font-style: italic;
         color: $primary-red;
+        margin-top: 0.5rem;
+        animation: opacity 1s ease-out;
       }
+
+      svg {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        display: none;
+        animation: opacity 1s ease-out;
+      }
+    }
+
+    .btn {
+      display: block;
+      padding: 1.5rem;
+      background: $primary-green;
+      width: 100%;
+      outline: none;
+      text-transform: uppercase;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.25rem;
+      box-shadow: inset 0 -5px 0 0 $shadow;
+      margin: 1rem 0;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      box-shadow: inset 0 -3px 0 0 $shadow;
+      padding-top: calc(1.5rem - 2px);
+      margin-top: calc(1rem + 2px);
+      text-shadow: 0 1px $shadow;
+      background: #51eba8;
+    }
+
+    p {
+      color: $light-neutral;
+      font-size: 0.8rem;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $primary-red;
     }
   }
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: 0.8rem;
   text-align: center;
+  margin-bottom: 2rem;
 
   a {
-    color: hsl(228, 45%, 44%);
+    color: $accent-color;
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes down {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes right {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes left {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
